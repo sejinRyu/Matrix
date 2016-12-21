@@ -1,0 +1,2 @@
+git remote add origin https://github.com/nthyun00/Matrix.git
+git push -u origin master
