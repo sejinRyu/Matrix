@@ -12,13 +12,13 @@ int main()
 
 		return 0;
 	}
-	catch (Matrix::ErrorType e)
+	catch (Matrix<>::ErrorType e)
 	{
-		if (e == Matrix::sizeError)
+		if (e == Matrix<>::sizeError)
 			std::cout << "Size Error!" << std::endl;
-		else if (e == Matrix::nullptrException)
+		else if (e == Matrix<>::nullptrException)
 			std::cout << "Null Pointer Execption!" << std::endl;
-		else if (e == Matrix::wrongIndex)
+		else if (e == Matrix<>::wrongIndex)
 			std::cout << "wrong Index Reference!" << std::endl;
 	}
 }

@@ -2,16 +2,17 @@
 #include <iostream>
 #include <string>
 
+template <typename T = int>
 class Matrix
 {
-	friend Matrix;
+	friend Matrix<T>;
 private:
 	int row = 0, column = 0;
-	int** data = nullptr;
+	T** data = nullptr;
 public:
 	enum ErrorType { sizeError, nullptrException, wrongIndex };
 
-	Matrix(const int row = 2, const int column = 2, const int value = 0)
+	Matrix(const int row = 2, const int column = 2, const T value = 0)
 	{
 		this->assign(row, column, value);
 	}
@@ -128,7 +129,7 @@ public:
 			return true;
 		else return false;
 	}
-	Matrix& assign(const int row = 2, const int column = 2, const int value = 0)
+	Matrix& assign(const int row = 2, const int column = 2, const T value = 0)
 	{
 		if (row < 1 || column < 1)
 			throw sizeError;
@@ -138,9 +139,9 @@ public:
 		this->row = row;
 		this->column = column;
 
-		data = new int*[row];
+		data = new T*[row];
 		for (int i = 0; i < row; i++)
-			data[i] = new int[column];
+			data[i] = new T[column];
 
 		for (int i = 0; i < row; i++)
 			for (int j = 0; j < column; j++)
@@ -169,7 +170,7 @@ public:
 	{
 		return this->column;
 	}
-	int& at(int row, int column)
+	T& at(int row, int column)
 	{
 		if (this->nullCheck())
 			throw nullptrException;
